@@ -24,11 +24,10 @@ export default function App() {
             headerTintColor: Colors.white,
               fontWeight: 'bold',
               fontSize: 20,
-            },
-            cardStyle: {
+              cardStyle: {
               backgroundColor: Colors.background,
-                          },,},
-          }}
+            },
+          }
         >
           <Stack.Screen 
             name="Home" 
