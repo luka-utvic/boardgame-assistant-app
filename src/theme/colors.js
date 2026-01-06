@@ -15,10 +15,10 @@ export const Colors = {
   
   // Semantic color mapping
   background: '#FFFFFF',
-  surface: '#FFFFFF',
+  surface: '#040C1C',
   secondary: '#FFFFFF',
   text: '#040C1C',
-  textSecondary: '#E5E5E5',
+  textSecondary: '#040C1C',
   border: '#2234AB',
   cardBackground: '#132670',
 };
