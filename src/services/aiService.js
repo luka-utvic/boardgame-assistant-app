@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GEMINI_API_KEY } from '@env';
 
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${GEMINI_API_KEY}`;
 export async function askQuestion(gameName, question) {
   const prompt = `You are a helpful board game assistant. The user is playing "${gameName}". They have the following question: "${question}"
 
