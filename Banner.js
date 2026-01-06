@@ -1,12 +1,11 @@
+// Banner.js
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Banner as PaperBanner } from 'react-native-paper';
 
-export function Banner() {
+export default function Banner() {
   const [visible, setVisible] = useState(true);
 
-  // This is a placeholder for AdMob banner
-  // In production, replace with actual AdMob BannerAd component
   if (!visible) return null;
 
   return (
