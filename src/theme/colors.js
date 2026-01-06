@@ -1,6 +1,6 @@
 export const Colors = {
   // Primary colors from your scheme
-  inkBlack: '#040C1C',
+  inkBlack: '#',
   imperialBlue: '#132670',
   egyptianBlue: '#2234AB',
   royalBlue: '#4C65E0',
@@ -16,8 +16,8 @@ export const Colors = {
   // Semantic color mapping
   background: '#FFFFFF',
   surface: '#FFFFFF',
-  secondary: '#FFFFFF',
-  text: '#FFFFFF',
+  secondary: '#E5E5E5',
+  text: '#040C1C',
   textSecondary: '#929292',
   border: '#2234AB',
   cardBackground: '#132670',
