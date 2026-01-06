@@ -5,6 +5,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import GameSelectionScreen from './src/screens/GameSelectionScreen';
 import QuestionScreen from './src/screens/QuestionScreen';
 import { Provider as PaperProvider } from 'react-native-paper';
+import Colors from './src/theme/colors';
 
 const Stack = createStackNavigator();
 
@@ -12,22 +13,38 @@ export default function App() {
   return (
     <PaperProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator 
+          initialRouteName="Home"
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: Colors.imperialBlue,
+              elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 2,
+              borderBottomColor: Colors.primary,
+            },
+            headerTintColor: Colors.white,
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 20,
+            },
+            cardStyle: {
+              backgroundColor: Colors.background,
+            },
+          }}
+        >
           <Stack.Screen 
             name="Home" 
-            component={HomeScreen}
-            options={{ title: 'Board Game Assistant' }}
-          />
-          <Stack.Screen 
-            name="GameSelection" 
             component={GameSelectionScreen}
-            options={{ title: 'Select a Game' }}
+            options={{ 
+              title: 'Select Game',
+            }}
           />
           <Stack.Screen 
             name="Question" 
             component={QuestionScreen}
             options={({ route }) => ({ 
-              title: route.params?.gameName || 'Ask Question' 
+              title: route.params?.gameName || 'Ask Question',
             })}
           />
         </Stack.Navigator>
