@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, ScrollView, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
-import { TextInput, Button, Card, Paragraph } from 'react-native-paper';
+import { View, ScrollView, StyleSheet, Text, KeyboardAvoidingView, Platform, StatusBar, ActivityIndicator } from 'react-native';
+import { TextInput, Button, Card } from 'react-native-paper';
 import { askQuestion } from '../services/aiService';
 import { Banner } from '../components/Banner';
+import Colors from '../theme/colors';
 
 export default function QuestionScreen({ route }) {
   const { gameName, gameId } = route.params;
@@ -15,13 +16,12 @@ export default function QuestionScreen({ route }) {
     
     setLoading(true);
     try {
-      const response = await askQuestion(gameName, question);
-      setAnswer(response);
+      const result = await askQuestion(gameName, question);
+      setAnswer(result);
     } catch (error) {
-      setAnswer('Sorry, I encountered an error. Please try again.');
-    } finally {
-      setLoading(false);
+      setAnswer('Sorry, there was an error processing your question. Please try again.');
     }
+    setLoading(false);
   };
 
   return (
@@ -29,39 +29,69 @@ export default function QuestionScreen({ route }) {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
+      <StatusBar barStyle="light-content" backgroundColor={Colors.inkBlack} />
       <Banner />
-      <ScrollView style={styles.content}>
-        <Card style={styles.card}>
+      
+      <View style={styles.header}>
+        <Text style={styles.gameTitle}>{gameName}</Text>
+        <Text style={styles.headerSubtitle}>Ask any question about the game</Text>
+      </View>
+
+      <ScrollView 
+        style={styles.content}
+        contentContainerStyle={styles.contentContainer}
+      >
+        <Card style={styles.inputCard}>
           <Card.Content>
-            <Paragraph style={styles.gameName}>Playing: {gameName}</Paragraph>
+            <Text style={styles.label}>Your Question</Text>
+            <TextInput
+              mode="outlined"
+              placeholder="e.g., How do I set up the board?"
+              value={question}
+              onChangeText={setQuestion}
+              multiline
+              numberOfLines={3}
+              style={styles.input}
+              outlineColor={Colors.border}
+              activeOutlineColor={Colors.primary}
+              textColor={Colors.white}
+              placeholderTextColor={Colors.textSecondary}
+              theme={{
+                colors: {
+                  background: Colors.surface,
+                  text: Colors.white,
+                  placeholder: Colors.textSecondary,
+                }
+              }}
+            />
+            <Button
+              mode="contained"
+              onPress={handleAsk}
+              loading={loading}
+              disabled={loading || !question.trim()}
+              style={styles.button}
+              buttonColor={Colors.primary}
+              textColor={Colors.white}
+            >
+              {loading ? 'Thinking...' : 'Ask Question'}
+            </Button>
           </Card.Content>
         </Card>
 
-        <TextInput
-          label="Ask a question"
-          value={question}
-          onChangeText={setQuestion}
-          mode="outlined"
-          multiline
-          numberOfLines={3}
-          style={styles.input}
-          placeholder="e.g., How do I set up the game for 4 players?"
-        />
+        {loading && (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color={Colors.primary} />
+            <Text style={styles.loadingText}>Getting your answer...</Text>
+          </View>
+        )}
 
-        <Button
-          mode="contained"
-          onPress={handleAsk}
-          loading={loading}
-          disabled={loading || !question.trim()}
-          style={styles.button}
-        >
-          Ask Assistant
-        </Button>
-
-        {answer && (
+        {answer !== '' && !loading && (
           <Card style={styles.answerCard}>
             <Card.Content>
-              <Paragraph style={styles.answer}>{answer}</Paragraph>
+              <View style={styles.answerHeader}>
+                <Text style={styles.answerLabel}>Answer</Text>
+              </View>
+              <Text style={styles.answerText}>{answer}</Text>
             </Card.Content>
           </Card>
         )}
@@ -73,29 +103,83 @@ export default function QuestionScreen({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: Colors.background,
+  },
+  header: {
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    backgroundColor: Colors.surface,
+    borderBottomWidth: 2,
+    borderBottomColor: Colors.primary,
+  },
+  gameTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: Colors.white,
+    marginBottom: 5,
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    color: Colors.textSecondary,
   },
   content: {
-    padding: 16,
+    flex: 1,
   },
-  card: {
-    marginBottom: 16,
+  contentContainer: {
+    padding: 15,
   },
-  gameName: {
+  inputCard: {
+    backgroundColor: Colors.cardBackground,
+    borderRadius: 12,
+    marginBottom: 15,
+    elevation: 4,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  label: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
+    color: Colors.white,
+    marginBottom: 10,
   },
   input: {
-    marginBottom: 16,
+    marginBottom: 15,
+    backgroundColor: Colors.surface,
   },
   button: {
-    marginBottom: 16,
+    borderRadius: 8,
+    paddingVertical: 6,
+  },
+  loadingContainer: {
+    alignItems: 'center',
+    padding: 30,
+  },
+  loadingText: {
+    marginTop: 10,
+    fontSize: 16,
+    color: Colors.textSecondary,
   },
   answerCard: {
-    backgroundColor: '#e3f2fd',
+    backgroundColor: Colors.cardBackground,
+    borderRadius: 12,
+    marginTop: 5,
+    elevation: 4,
+    borderWidth: 1,
+    borderColor: Colors.primary,
   },
-  answer: {
-    fontSize: 15,
-    lineHeight: 22,
+  answerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  answerLabel: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: Colors.primary,
+  },
+  answerText: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: Colors.white,
   },
 });
