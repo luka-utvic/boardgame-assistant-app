@@ -27,7 +27,7 @@ export default function App() {
             },
             cardStyle: {
               backgroundColor: Colors.background,
-            },
+                          },,},
           }}
         >
           <Stack.Screen 
