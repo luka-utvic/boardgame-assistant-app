@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, FlatList, StyleSheet, Text, TouchableOpacity, StatusBar } from 'react-native';
-import { Divider } from 'react-native-paper';
 import { games } from '../data/games';
 import { Banner } from '../components/Banner';
 import Colors from '../theme/colors';
@@ -20,21 +19,16 @@ export default function GameSelectionScreen({ navigation }) {
         data={games}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <>
-            <TouchableOpacity
-              style={styles.gameCard}
-              onPress={() => navigation.navigate('Question', { gameName: item.name })}
-              activeOpacity={0.7}
-            >
-              <View style={styles.gameContent}>
-                <Text style={styles.gameName}>{item.name}</Text>
-                <Text style={styles.arrow}>→</Text>
-              </View>
-            </TouchableOpacity>
-            <Divider style={styles.divider} />
-          </>
+          <TouchableOpacity
+            style={styles.gameCard}
+            onPress={() => navigation.navigate('Question', { gameName: item.name })}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.gameName}>{item.name}</Text>
+          </TouchableOpacity>
         )}
         contentContainerStyle={styles.listContainer}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
@@ -47,58 +41,37 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 15,
-    backgroundColor: Colors.surface,
-    borderBottomWidth: 2,
-    borderBottomColor: Colors.primary,
+    paddingTop: 25,
+    paddingBottom: 20,
+    backgroundColor: Colors.background,
   },
   headerTitle: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    fontSize: 32,
+    fontWeight: '700',
     color: Colors.white,
-    marginBottom: 5,
+    marginBottom: 6,
+    letterSpacing: -0.5,
   },
   headerSubtitle: {
-    fontSize: 14,
+    fontSize: 15,
     color: Colors.textSecondary,
+    opacity: 0.9,
   },
   listContainer: {
-    paddingHorizontal: 15,
-    paddingTop: 10,
+    paddingHorizontal: 20,
+    paddingTop: 5,
+    paddingBottom: 20,
   },
   gameCard: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
+    backgroundColor: Colors.egyptianBlue,
+    borderRadius: 16,
     padding: 20,
-    marginVertical: 6,
-    borderWidth: 1,
-    borderColor: Colors.border,
-    elevation: 3,
-    shadowColor: Colors.primary,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-  },
-  gameContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    marginBottom: 12,
   },
   gameName: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 17,
+    fontWeight: '500',
     color: Colors.white,
-    flex: 1,
-  },
-  arrow: {
-    fontSize: 24,
-    color: Colors.primary,
-    fontWeight: 'bold',
-  },
-  divider: {
-    height: 1,
-    backgroundColor: Colors.border,
-    marginVertical: 4,
+    letterSpacing: 0.2,
   },
 });
