@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, Image } from 'react-native';
 import { Button, Title, Paragraph, Card } from 'react-native-paper';
-import { Banner } from '../components/Banner';
+import Banner from '../../components/Banner';
 
 export default function HomeScreen({ navigation }) {
   return (
