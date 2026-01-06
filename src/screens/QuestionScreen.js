@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   gameTitle: {
     fontSize: 26,
     fontWeight: '700',
-    color: Colors.white,
+    color: Colors.inkBlack,
     marginBottom: 6,
     letterSpacing: -0.3,
   },
