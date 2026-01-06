@@ -44,13 +44,13 @@ export default function QuestionScreen({ route }) {
         <View style={styles.inputSection}>
           <Text style={styles.label}>Your Question</Text>
           <TextInput
-            placeholder="e.g., How do I set up the board?"
+            placeholder="e.g., How do I set up the board for 4 players?"
             value={question}
             onChangeText={setQuestion}
             multiline
             numberOfLines={4}
             style={styles.input}
-            placeholderTextColor={Colors.inkBlack}
+            placeholderTextColor={Colors.white}
           />
           <TouchableOpacity
             onPress={handleAsk}
