@@ -11,7 +11,7 @@ export default function GameSelectionScreen({ navigation }) {
       <Banner />
       
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Board Game Assistant</Text>
+        <Text style={colors.'inkblack'}>Board Game Assistant</Text>
         <Text style={styles.headerSubtitle}>Select your game to get started</Text>
       </View>
 
