@@ -16,9 +16,9 @@ export const Colors = {
   // Semantic color mapping
   background: '#FFFFFF',
   surface: '#040C1C',
-  secondary: '#FFFFFF',
+  secondary: '#040C1C',
   text: '#040C1C',
-  textSecondary: '#040C1C',
+  textSecondary: '#040C1C', //"Select your game to get started"
   border: '#2234AB',
   cardBackground: '#132670',
 };
