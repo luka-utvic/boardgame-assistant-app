@@ -11,7 +11,7 @@ export default function GameSelectionScreen({ navigation }) {
       <Banner />
       
       <View style={styles.header}>
-        <Text style={styles.headerSubtitle}>Board Game Assistant</Text>
+        <Text style={styles.headerTitle}>Board Game Assistant</Text>
         <Text style={styles.headerSubtitle}>Select your game to get started</Text>
       </View>
 
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 32,
     fontWeight: '700',
-    color: Colors.white,
+    color: Colors.inkblack,
     marginBottom: 6,
     letterSpacing: -0.5,
   },
