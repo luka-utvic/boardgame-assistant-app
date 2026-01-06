@@ -20,11 +20,8 @@ export default function App() {
               backgroundColor: Colors.imperialBlue,
               elevation: 0,
               shadowOpacity: 0,
-              borderBottomWidth: 2,
-              borderBottomColor: Colors.primary,
             },
             headerTintColor: Colors.white,
-            headerTitleStyle: {
               fontWeight: 'bold',
               fontSize: 20,
             },
