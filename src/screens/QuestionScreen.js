@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView, StyleSheet, Text, KeyboardAvoidingView, Platform, StatusBar, ActivityIndicator } from 'react-native';
-import { TextInput, Button, Card } from 'react-native-paper';
+import { View, ScrollView, StyleSheet, Text, TextInput, KeyboardAvoidingView, Platform, StatusBar, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { askQuestion } from '../services/aiService';
 import { Banner } from '../components/Banner';
 import Colors from '../theme/colors';
@@ -40,43 +39,33 @@ export default function QuestionScreen({ route }) {
       <ScrollView 
         style={styles.content}
         contentContainerStyle={styles.contentContainer}
+        showsVerticalScrollIndicator={false}
       >
-        <Card style={styles.inputCard}>
-          <Card.Content>
-            <Text style={styles.label}>Your Question</Text>
-            <TextInput
-              mode="outlined"
-              placeholder="e.g., How do I set up the board?"
-              value={question}
-              onChangeText={setQuestion}
-              multiline
-              numberOfLines={3}
-              style={styles.input}
-              outlineColor={Colors.border}
-              activeOutlineColor={Colors.primary}
-              textColor={Colors.white}
-              placeholderTextColor={Colors.textSecondary}
-              theme={{
-                colors: {
-                  background: Colors.surface,
-                  text: Colors.white,
-                  placeholder: Colors.textSecondary,
-                }
-              }}
-            />
-            <Button
-              mode="contained"
-              onPress={handleAsk}
-              loading={loading}
-              disabled={loading || !question.trim()}
-              style={styles.button}
-              buttonColor={Colors.primary}
-              textColor={Colors.white}
-            >
+        <View style={styles.inputSection}>
+          <Text style={styles.label}>Your Question</Text>
+          <TextInput
+            placeholder="e.g., How do I set up the board?"
+            value={question}
+            onChangeText={setQuestion}
+            multiline
+            numberOfLines={4}
+            style={styles.input}
+            placeholderTextColor={Colors.textSecondary}
+          />
+          <TouchableOpacity
+            onPress={handleAsk}
+            disabled={loading || !question.trim()}
+            style={[
+              styles.button,
+              (loading || !question.trim()) && styles.buttonDisabled
+            ]}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.buttonText}>
               {loading ? 'Thinking...' : 'Ask Question'}
-            </Button>
-          </Card.Content>
-        </Card>
+            </Text>
+          </TouchableOpacity>
+        </View>
 
         {loading && (
           <View style={styles.loadingContainer}>
@@ -86,19 +75,14 @@ export default function QuestionScreen({ route }) {
         )}
 
         {answer !== '' && !loading && (
-          <Card style={styles.answerCard}>
-            <Card.Content>
-              <View style={styles.answerHeader}>
-                <Text style={styles.answerLabel}>Answer</Text>
-              </View>
-              <Text style={styles.answerText}>{answer}</Text>
-            </Card.Content>
-          </Card>
+          <View style={styles.answerSection}>
+            <Text style={styles.answerLabel}>Answer</Text>
+            <Text style={styles.answerText}>{answer}</Text>
+          </View>
         )}
       </ScrollView>
     </KeyboardAvoidingView>
-  );
-}
+  );}
 
 const styles = StyleSheet.create({
   container: {
@@ -107,79 +91,86 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 20,
-    paddingVertical: 20,
-    backgroundColor: Colors.surface,
-    borderBottomWidth: 2,
-    borderBottomColor: Colors.primary,
+    paddingVertical: 25,
+    backgroundColor: Colors.background,
   },
   gameTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 26,
+    fontWeight: '700',
     color: Colors.white,
-    marginBottom: 5,
+    marginBottom: 6,
+    letterSpacing: -0.3,
   },
   headerSubtitle: {
-    fontSize: 14,
+    fontSize: 15,
     color: Colors.textSecondary,
+    opacity: 0.9,
   },
   content: {
     flex: 1,
   },
   contentContainer: {
-    padding: 15,
+    padding: 20,
   },
-  inputCard: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
-    marginBottom: 15,
-    elevation: 4,
-    borderWidth: 1,
-    borderColor: Colors.border,
+  inputSection: {
+    marginBottom: 20,
   },
   label: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '600',
     color: Colors.white,
-    marginBottom: 10,
+    marginBottom: 12,
   },
   input: {
-    marginBottom: 15,
-    backgroundColor: Colors.surface,
+    backgroundColor: Colors.egyptianBlue,
+    borderRadius: 12,
+    padding: 16,
+    fontSize: 16,
+    color: Colors.white,
+    minHeight: 110,
+    textAlignVertical: 'top',
+    marginBottom: 16,
   },
   button: {
-    borderRadius: 8,
-    paddingVertical: 6,
+    backgroundColor: Colors.primary,
+    borderRadius: 12,
+    padding: 16,
+    alignItems: 'center',
+  },
+  buttonDisabled: {
+    opacity: 0.5,
+  },
+  buttonText: {
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: '600',
   },
   loadingContainer: {
     alignItems: 'center',
-    padding: 30,
+    paddingVertical: 40,
   },
   loadingText: {
-    marginTop: 10,
-    fontSize: 16,
+    marginTop: 12,
+    fontSize: 15,
     color: Colors.textSecondary,
   },
-  answerCard: {
-    backgroundColor: Colors.cardBackground,
+  answerSection: {
+    marginTop: 10,
+    backgroundColor: Colors.egyptianBlue,
     borderRadius: 12,
-    marginTop: 5,
-    elevation: 4,
-    borderWidth: 1,
-    borderColor: Colors.primary,
-  },
-  answerHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
+    padding: 20,
   },
   answerLabel: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: '700',
     color: Colors.primary,
+    marginBottom: 12,
+    letterSpacing: 0.3,
   },
   answerText: {
     fontSize: 16,
-    lineHeight: 24,
+    lineHeight: 25,
     color: Colors.white,
+    letterSpacing: 0.2,
   },
 });
