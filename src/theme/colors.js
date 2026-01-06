@@ -16,7 +16,7 @@ export const Colors = {
   // Semantic color mapping
   background: '#040C1C',
   surface: '#132670',
-  primary: '#4C65E0',
+  #2234AB,
   secondary: '#2234AB',
   text: '#FFFFFF',
   textSecondary: '#929292',
