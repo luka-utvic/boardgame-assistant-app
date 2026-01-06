@@ -17,10 +17,10 @@ export const Colors = {
   background: '#040C1C',
   surface: '#132670',
   secondary: '#2234AB',
-  text: '#040C1C',
+  text: '#FFFFFF',
   textSecondary: '#929292',
   border: '#2234AB',
-  cardBackground: '#FFFFFF',
+  cardBackground: '#132670',
 };
 
 export default Colors;
