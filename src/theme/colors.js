@@ -14,9 +14,9 @@ export const Colors = {
   warning: '#FF9800',
   
   // Semantic color mapping
-  background: '#040C1C',
-  surface: '#132670',
-  secondary: '#2234AB',
+  background: '#FFFFFF',
+  surface: '#FFFFFF',
+  secondary: '#FFFFFF',
   text: '#FFFFFF',
   textSecondary: '#929292',
   border: '#2234AB',
