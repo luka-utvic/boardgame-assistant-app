@@ -21,7 +21,7 @@ export default function App() {
               elevation: 0,
               shadowOpacity: 0,
             },
-            headerTintColor: Colors.inkblack,
+            headerTintColor: Colors.white,
               fontWeight: 'bold',
               fontSize: 20,
               cardStyle: {
