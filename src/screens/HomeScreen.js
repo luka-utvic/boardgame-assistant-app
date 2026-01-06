@@ -11,7 +11,7 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.content}>
         <Card style={styles.card}>
           <Card.Content>
-            <Title style={styles.title}><font color ='inkblack'>Welcome to Board Game Assistant!</font color></Title>
+            <Title style={styles.title}>Welcome to Board Game Assistant!</Title>
             <Paragraph style={styles.paragraph}>
               Your AI-powered companion for all your board gaming needs.
             </Paragraph>
