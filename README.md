@@ -15,7 +15,7 @@ AI-powered assistant app for board game setup and rule questions. Supports iOS a
 - **Framework**: React Native with Expo
 - **UI Library**: React Native Paper
 - **Navigation**: React Navigation
-- **AI API**: Google Gemini API (free tier)
+- **AI API**: Google Gemini API (Tier 1)
 - **Ads**: Google AdMob
 - **Platform**: iOS & Android
 
