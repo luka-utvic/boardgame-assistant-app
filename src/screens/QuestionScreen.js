@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, ScrollView, StyleSheet, Text, TextInput, KeyboardAvoidingView, Platform, StatusBar, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { askQuestion } from '../services/aiService';
-import { Banner } from '../components/Banner';
+import Banner from '../../Banner';
 import Colors from '../theme/colors';
 
 export default function QuestionScreen({ route }) {
