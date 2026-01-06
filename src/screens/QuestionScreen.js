@@ -50,7 +50,7 @@ export default function QuestionScreen({ route }) {
             multiline
             numberOfLines={4}
             style={styles.input}
-            placeholderTextColor={Colors.textSecondary}
+            placeholderTextColor={Colors.inkBlack}
           />
           <TouchableOpacity
             onPress={handleAsk}
