@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList, StyleSheet, Text, TouchableOpacity, StatusBar } from 'react-native';
 import { games } from '../data/games';
-import { Banner } from '../components/Banner';
+import Banner from '../../Banner';
 import Colors from '../theme/colors';
 
 export default function GameSelectionScreen({ navigation }) {
