@@ -249,4 +249,254 @@ export const games = [
   name: 'Codenames',
   description: 'Give clues to find secret agents on the grid',
 },
+{
+  id: '51',
+  name: 'Just One',
+  description: 'Cooperative word-guessing with unique clues',
+},
+{
+  id: '52',
+  name: 'Azul: Stained Glass of Sintra',
+  description: 'Draft colorful panes to build stained glass',
+},
+{
+  id: '53',
+  name: 'Lost Ruins of Arnak',
+  description: 'Deck-building and exploration on a mysterious island',
+},
+{
+  id: '54',
+  name: 'Dixit',
+  description: 'Tell stories using surreal illustrated cards',
+},
+{
+  id: '55',
+  name: 'Great Western Trail',
+  description: 'Herd cattle and optimize your delivery route',
+},
+{
+  id: '56',
+  name: 'The Resistance: Avalon',
+  description: 'Hidden roles and deduction in Arthurian legend',
+},
+{
+  id: '57',
+  name: 'Nemesis',
+  description: 'Survive an alien-infested ship with semi-coop tension',
+},
+{
+  id: '58',
+  name: 'Ark Nova',
+  description: 'Build a modern zoo with strategic conservation goals',
+},
+{
+  id: '59',
+  name: 'Sleeping Gods',
+  description: 'Story-driven cooperative exploration across worlds',
+},
+{
+  id: '60',
+  name: 'Gloomhaven',
+  description: 'Epic cooperative dungeon-crawling campaign',
+},
+{
+  id: '61',
+  name: 'Frosthaven',
+  description: 'Massive sequel with crafting and settlement building',
+},
+{
+  id: '62',
+  name: 'Clue',
+  description: 'Classic deduction to solve a murder mystery',
+},
+{
+  id: '63',
+  name: 'Monopoly Deal',
+  description: 'Fast-paced card version of property trading',
+},
+{
+  id: '64',
+  name: 'Kingdomino',
+  description: 'Draft domino tiles to build a kingdom',
+},
+{
+  id: '65',
+  name: 'Railroad Ink',
+  description: 'Draw routes to connect roads and railways',
+},
+{
+  id: '66',
+  name: 'The Fox in the Forest',
+  description: 'Two-player trick-taking with fairy-tale powers',
+},
+{
+  id: '67',
+  name: 'Forbidden Island',
+  description: 'Cooperative treasure hunt on a sinking island',
+},
+{
+  id: '68',
+  name: 'Forbidden Desert',
+  description: 'Survive a sandstorm while assembling an airship',
+},
+{
+  id: '69',
+  name: 'Forbidden Sky',
+  description: 'Build circuits to launch a rocket in a storm',
+},
+{
+  id: '70',
+  name: 'Onitama',
+  description: 'Elegant tactical movement duel with shifting cards',
+},
+{
+  id: '71',
+  name: 'Hive',
+  description: 'Abstract insect strategy with no board required',
+},
+{
+  id: '72',
+  name: 'The King’s Dilemma',
+  description: 'Narrative negotiation shaping a kingdom’s fate',
+},
+{
+  id: '73',
+  name: 'The Crew: Mission Deep Sea',
+  description: 'Cooperative trick-taking with evolving missions',
+},
+{
+  id: '74',
+  name: 'Wavelength',
+  description: 'Team guessing game about interpreting concepts',
+},
+{
+  id: '75',
+  name: 'So Clover!',
+  description: 'Cooperative word-association puzzle with clovers',
+},
+{
+  id: '76',
+  name: 'Terraforming Mars: Ares Expedition',
+  description: 'Streamlined card-driven terraforming strategy',
+},
+{
+  id: '77',
+  name: 'Brass: Birmingham',
+  description: 'Industrial-era economic strategy masterpiece',
+},
+{
+  id: '78',
+  name: 'Brass: Lancashire',
+  description: 'Classic economic network-building in England',
+},
+{
+  id: '79',
+  name: 'The Red Dragon Inn',
+  description: 'Party game about adventurers drinking and gambling',
+},
+{
+  id: '80',
+  name: 'Skull',
+  description: 'Bluffing game with flowers and skulls',
+},
+{
+  id: '81',
+  name: 'Love Letter',
+  description: 'Quick deduction with minimal cards',
+},
+{
+  id: '82',
+  name: 'Pandemic Legacy: Season 1',
+  description: 'Evolving cooperative campaign to stop outbreaks',
+},
+{
+  id: '83',
+  name: 'Pandemic Legacy: Season 2',
+  description: 'Post-apocalyptic continuation of the legacy story',
+},
+{
+  id: '84',
+  name: 'Pandemic Legacy: Season 0',
+  description: 'Cold War spy-themed prequel to the series',
+},
+{
+  id: '85',
+  name: 'The Game',
+  description: 'Cooperative number-stacking challenge',
+},
+{
+  id: '86',
+  name: 'The Game: Quick & Easy',
+  description: 'Simplified cooperative number puzzle',
+},
+{
+  id: '87',
+  name: 'Camel Up',
+  description: 'Bet on chaotic camel races in the desert',
+},
+{
+  id: '88',
+  name: 'Quoridor',
+  description: 'Abstract race with strategic wall placement',
+},
+{
+  id: '89',
+  name: 'Santorini',
+  description: 'Build towers and outmaneuver opponents with powers',
+},
+{
+  id: '90',
+  name: 'Root: The Marauder Expansion',
+  description: 'Adds new factions and hirelings to the woodland war',
+},
+{
+  id: '91',
+  name: 'Root: The Riverfolk Expansion',
+  description: 'Introduce merchants and cooperative trade dynamics',
+},
+{
+  id: '92',
+  name: 'Root: The Underworld Expansion',
+  description: 'Adds moles and crows with new maps',
+},
+{
+  id: '93',
+  name: 'The Isle of Skye',
+  description: 'Tile-laying with dynamic pricing and auctions',
+},
+{
+  id: '94',
+  name: 'Concordia',
+  description: 'Economic strategy across ancient Mediterranean',
+},
+{
+  id: '95',
+  name: 'Ankh: Gods of Egypt',
+  description: 'Area control with Egyptian gods and merging mechanics',
+},
+{
+  id: '96',
+  name: 'Blood Rage',
+  description: 'Viking clans battle during Ragnarok',
+},
+{
+  id: '97',
+  name: 'Cyclades',
+  description: 'Bid for gods and control Greek islands',
+},
+{
+  id: '98',
+  name: 'Small World',
+  description: 'Fantasy civilizations compete for shrinking land',
+},
+{
+  id: '99',
+  name: 'Twilight Struggle',
+  description: 'Cold War strategy through card-driven tension',
+},
+{
+  id: '100',
+  name: 'Star Realms',
+  description: 'Fast deck-building combat in outer space',
+}
 ];
